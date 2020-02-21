@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Mass Index</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- load jquery and bootstrap js -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+
+
+      count = () =>{
+        // mengambil nilai dari elemen (get value)
+        let berat = document.getElementById('berat').value;
+        let tinggi = document.getElementById('tinggi').value;
+        let hasil = berat / (tinggi * tinggi);
+
+        //menentukan nilai pada elemen (set value)
+        document.getElementById('hasil').value = hasil;
+        if (hasil > 0 && hasil < 18.5) {
+            document.getElementById('hasil').value ="ANDA KURUS";
+        }
+        else if (hasil >= 18.5 && hasil <= 22.9) {
+            document.getElementById('hasil').value = "ANDA NORMAL"
+        }
+        else if (hasil >= 23 && hasil <=24.9) {
+            document.getElementById('hasil').value ="ANDA OVERWEIGHT"
+        }
+        else{
+            document.getElementById('hasil').value ="ANDA OBESITAS!!!!!!"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card col-sm-4">
+        <div class="card-header">
+          <h4>Body Mass Index</h4>
+        </div>
+        <div class="card-body">
+          Berat (kg)
+          <input type="number" id="berat" class="form-control">
+          Tinggi (m)
+          <input type="number" id="tinggi" class="form-control">
+          <button type="button" class="btn btn-info btn-block"
+          onclick="count();">
+          Hitung
+        </button>
+        Hasil
+        <input type="text" id="hasil" class="form-control"
+        readonly>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

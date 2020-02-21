@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cicilan</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- load jquery and bootstrap js -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+
+
+      count = () =>{
+        // mengambil nilai dari elemen (get value)
+        let nominal = Number(document.getElementById('nominal').value);
+        let bunga = Number(document.getElementById('bunga').value);
+        let periode = Number(document.getElementById('periode').value);
+        let hasil = ((nominal * bunga / 100) + nominal) / periode ;
+        document.getElementById('hasil').value = hasil;
+
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card col-sm-4">
+        <div class="card-header">
+          <h4>Cicilan Bank</h4>
+        </div>
+        <div class="card-body">
+          Nominal
+          <input type="number" id="nominal" class="form-control">
+          Bunga
+          <input type="number" id="bunga" class="form-control">
+          Periode
+          <select id="periode" class="form-control">
+            <option value=""Pilih Bulan</option>
+            <option value="12">12 Bulan</option>
+            <option value="24">24 Bulan</option>
+            <option value="36">36 Bulan</option>
+          </select>
+          <button type="button" class="btn btn-info btn-block"
+          onclick="count();">
+          Hitung
+        </button>
+        Hasil
+        <input type="number" id="hasil" class="form-control"
+        readonly>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
